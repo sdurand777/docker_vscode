@@ -1,0 +1,12 @@
+version: '3'
+services:
+  vscode-container:
+    build: .
+    container_name: vscode-container
+    volumes:
+      - .:/workspace  # Monter le répertoire local dans le conteneur
+    ports:
+      - "8080:8080"  # Optionnel, exposez un port pour les services web si nécessaire
+    tty: true  # Maintenir un terminal interactif
+    environment:
+      - DISPLAY=${DISPLAY}  # Nécessaire si vous utilisez un serveur X pour l'affichage graphique
